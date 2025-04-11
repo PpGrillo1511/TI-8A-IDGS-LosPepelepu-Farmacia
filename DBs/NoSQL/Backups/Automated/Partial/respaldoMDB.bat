@@ -5,7 +5,7 @@ setlocal enabledelayedexpansion
 set MONGO_USER=username
 set MONGO_PASSWORD=password
 set MONGO_CLUSTER=cluster
-set MONGO_DB=name_db
+set MONGO_DB=bd_hospital
 set COLLECTION=nombre_collection
 set BACKUP_PATH=C:\RespaldosMongoJSON
 set DATESTAMP=%DATE:~6,4%-%DATE:~3,2%-%DATE:~0,2%
