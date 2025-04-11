@@ -6,7 +6,7 @@ set MYSQL_USER=user
 set MYSQL_PASSWORD=password
 set MYSQL_HOST=localhost
 set MYSQL_PORT=puerto
-set MYSQL_DATABASE=nombre_bd
+set MYSQL_DATABASE=bd_hospital
 set BACKUP_PATH=C:\Respaldos
 set BACKUP_FILE=%BACKUP_PATH%\FullBackup-%MYSQL_DATABASE%-%DATE:~6,4%-%DATE:~3,2%-%DATE:~0,2%_%TIME:~0,2%%TIME:~3,2%.sql
 
