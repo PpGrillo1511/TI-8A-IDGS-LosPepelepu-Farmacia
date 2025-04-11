@@ -1,0 +1,1 @@
+mysqldump -u root -p bd_hospital tbb_medicamentos > respaldo_parcial.sql
