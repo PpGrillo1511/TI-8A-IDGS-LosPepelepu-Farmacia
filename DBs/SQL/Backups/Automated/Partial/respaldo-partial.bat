@@ -3,12 +3,13 @@ setlocal enabledelayedexpansion
 
 :: Configuración
 set MYSQL_USER=root
-set MYSQL_PASSWORD=password
+set MYSQL_PASSWORD=########
 set MYSQL_HOST=localhost
 set MYSQL_PORT=3309
 set MYSQL_DATABASE=bd_hospital
+set MYSQL_TABLE=tbb_medicamentos
 set BACKUP_PATH=C:\Respaldos
-set BACKUP_FILE=%BACKUP_PATH%\FullBackup-%MYSQL_DATABASE%-%DATE:~6,4%-%DATE:~3,2%-%DATE:~0,2%_%TIME:~0,2%%TIME:~3,2%.sql
+set BACKUP_FILE=%BACKUP_PATH%\Backup_%MYSQL_DATABASE%_%MYSQL_TABLE%-%DATE:~6,4%-%DATE:~3,2%-%DATE:~0,2%_%TIME:~0,2%%TIME:~3,2%.sql
 
 :: Encabezado ASCII
 echo.
@@ -27,15 +28,15 @@ for /f "tokens=1-4 delims=:.," %%a in ("%time%") do (
 )
 set START_TIME=%START_HOUR%:%START_MIN%:%START_SEC%
 
-echo Iniciando respaldo de %MYSQL_DATABASE%...
+echo Iniciando respaldo de la tabla %MYSQL_TABLE% de la base de datos %MYSQL_DATABASE%...
 echo Fecha y hora de inicio: %date% %START_TIME%
 echo.
 
 :: Crear directorio de respaldo si no existe
 if not exist "%BACKUP_PATH%" mkdir "%BACKUP_PATH%"
 
-:: Ejecutar respaldo con mysqldump
-mysqldump -h%MYSQL_HOST% -P%MYSQL_PORT% -u%MYSQL_USER% -p%MYSQL_PASSWORD% --databases %MYSQL_DATABASE% > "%BACKUP_FILE%"
+:: Ejecutar respaldo de la tabla con mysqldump
+mysqldump -h%MYSQL_HOST% -P%MYSQL_PORT% -u%MYSQL_USER% -p%MYSQL_PASSWORD% %MYSQL_DATABASE% %MYSQL_TABLE% > "%BACKUP_FILE%"
 
 :: Obtener hora de finalización
 for /f "tokens=1-4 delims=:.," %%a in ("%time%") do (

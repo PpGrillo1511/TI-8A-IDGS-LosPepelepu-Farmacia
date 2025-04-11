@@ -1,0 +1,1 @@
+mongodump --db bd_hospital --lotes_medicamentos --out C:\Users\Abdiel Rivera\Documents\Farmacia-Respaldos
