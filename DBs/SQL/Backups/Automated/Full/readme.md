@@ -1,3 +1,9 @@
+# 🤖🗃️ Automated Full SQL Backups
+
+![Tipo](https://img.shields.io/badge/Backup-Completo-success?style=flat-square)
+![Modo](https://img.shields.io/badge/Generación-Automática-blue?style=flat-square)
+
+Esta carpeta contiene respaldos **completos** de la base de datos SQL, generados automáticamente en intervalos definidos.
 
 |Integrante|Contacto|Rol|Observaciones|
 |------------|--------|---|---|
