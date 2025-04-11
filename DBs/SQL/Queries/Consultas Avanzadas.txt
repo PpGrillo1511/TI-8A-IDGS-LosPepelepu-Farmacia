@@ -1,0 +1,54 @@
+SELECT r.Nombre AS Rol
+FROM tbc_roles r
+JOIN tbd_usuarios_roles ur ON ur.Rol_ID = r.ID
+JOIN tbb_usuarios u ON u.ID = ur.Usuario_ID
+WHERE u.Nombre_Usuario = 'root6' AND ur.Estatus = 1;
+
+--------------------------------------------------------------------------------------
+
+SELECT 
+  u.ID AS Usuario_ID,
+  u.Nombre_Usuario,
+  u.Correo_Electronico,
+  u.Estatus AS Estatus_Usuario,
+  CONCAT(p.Nombre, ' ', p.Primer_Apellido, ' ', IFNULL(p.Segundo_Apellido, '')) AS Nombre_Completo,
+  r.ID AS Rol_ID,
+  r.Nombre AS Nombre_Rol,
+  r.Descripcion AS Descripcion_Rol
+FROM tbb_usuarios u
+JOIN tbb_personas p ON u.Persona_ID = p.ID
+JOIN tbd_usuarios_roles ur ON ur.Usuario_ID = u.ID AND ur.Estatus = 1
+JOIN tbc_roles r ON r.ID = ur.Rol_ID AND r.Estatus = 1;
+
+----------------------------------------------------------------------------------------
+
+SELECT 
+    u.ID AS Usuario_ID,
+    CONCAT(p.Nombre, ' ', p.Primer_Apellido, ' ', IFNULL(p.Segundo_Apellido, '')) AS Nombre_Completo,
+    p.CURP,
+    p.Genero,
+    p.Grupo_Sanguineo,
+    u.Nombre_Usuario,
+    u.Correo_Electronico,
+    COUNT(m.ID) AS Total_Medicamentos_Registrados,
+    MAX(m.Fecha_registro) AS Ultimo_Medicamento_Registrado
+FROM tbb_usuarios u
+JOIN tbb_personas p ON u.Persona_ID = p.ID
+LEFT JOIN tbc_medicamentos m ON YEAR(m.Fecha_registro) = YEAR(CURDATE()) -- Opcional: solo medicamentos del año actual
+WHERE u.Estatus = 'Activo'
+GROUP BY u.ID;
+
+-----------------------------------------------------------------------------------------
+
+SELECT 
+    p.ID AS Persona_ID,
+    CONCAT(p.Nombre, ' ', p.Primer_Apellido, ' ', IFNULL(p.Segundo_Apellido, '')) AS Nombre_Completo,
+    p.Fecha_Nacimiento,
+    TIMESTAMPDIFF(YEAR, p.Fecha_Nacimiento, CURDATE()) AS Edad,
+    u.Nombre_Usuario,
+    u.Estatus
+FROM tbb_personas p
+JOIN tbb_usuarios u ON p.ID = u.Persona_ID
+WHERE TIMESTAMPDIFF(YEAR, p.Fecha_Nacimiento, CURDATE()) >= 60
+  AND u.Estatus = 'Activo';
+
