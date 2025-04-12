@@ -24,15 +24,15 @@
 
 ## 📚 Tabla de Contenido
 
-- [🎯 Objetivo](#objetivo)
-- [🎯 Misión](#misión)
-- [👁️ Visión](#visión)
-- [⚙️ Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [✅ Funcionalidades Implementadas](#funcionalidades-implementadas)
-- [👨‍💻 Equipo de Desarrollo](#equipo-de-desarrollo)
-- [📊 Organigrama](#organigrama)
-- [🗓️ Diagrama de Gantt](#diagrama-de-gantt)
-- [📌 Estructura de Desglose del Trabajo (WBS)](#estructura-de-desglose-del-trabajo-wbs)
+- [🎯 Objetivo](#-objetivo)
+- [🎯 Misión](#-misión)
+- [👁️ Visión](#-visión)
+- [⚙️ Tecnologías Utilizadas](#-tecnologías-utilizadas)
+- [✅ Funcionalidades Implementadas](#-funcionalidades-implementadas)
+- [👨‍💻 Equipo de Desarrollo](#-equipo-de-desarrollo)
+- [📊 Organigrama](#-organigrama)
+- [🗓️ Diagrama de Gantt](#-diagrama-de-gantt)
+- [📌 Estructura de Desglose del Trabajo (WBS)](#-estructura-de-desglose-del-trabajo-wbs)
 
 ---
 
